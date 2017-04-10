@@ -5,7 +5,7 @@ module.exports = {
   devtool: '#source-map',
   context: __dirname,
    entry: [
-     './app/index.js'
+     './lib/index.js'
    ],
    output: {
      path: __dirname,
@@ -16,7 +16,7 @@ module.exports = {
      loaders: [{
        test: /.jsx?$/,
        loader: 'babel-loader',
-       include: path.join(__dirname, 'app'),
+       include: path.join(__dirname, 'lib'),
        exclude: /node_modules/,
        query: {
          presets: ['es2015', 'react']

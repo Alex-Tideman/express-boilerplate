@@ -25,15 +25,19 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-app.use('/assets', express.static(path.join(__dirname, '../app/assets')));
+app.use(express.static('lib'));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, './index.html'))
+  fs.readFile(`${__dirname}/index.html`, (err, file) => {
+    response.send(file);
+  });
 })
 
 app.use('/api', router);
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, './index.html'))
+  fs.readFile(`${__dirname}/index.html`, (err, file) => {
+    response.send(file);
+  });
 })
 
 app.listen(port);
