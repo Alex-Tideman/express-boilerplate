@@ -30,15 +30,15 @@ app.use(express.static('lib'));
 
 app.get('/', function (req, res) {
   fs.readFile(`${__dirname}/index.html`, (err, file) => {
-    response.send(file);
+    res.send(file)
   });
 })
 
 app.use('/api', router);
 app.get('/*', function (req, res) {
   fs.readFile(`${__dirname}/index.html`, (err, file) => {
-    response.send(file);
-  });
+    res.send(file);
+  })
 })
 
 app.listen(port);
